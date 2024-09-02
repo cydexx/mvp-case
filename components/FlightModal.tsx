@@ -5,13 +5,15 @@ import {
 	Text,
 	TouchableOpacity,
 	TouchableWithoutFeedback,
-	ImageBackground,
 } from "react-native"
-import { TurkishAirlinesIcon } from "./icons/AirlineIcon"
-import { TakeOffIcon } from "./icons/TakeOffIcon"
-import { LandingIcon } from "./icons/LandingIcon"
-import { FlightCardPlaneIcon } from "./icons/FlightCardPlaneIcon"
-import { formatTimeToAMPM } from "@/utils/timeUtils"
+
+import {
+	TakeOffIcon,
+	LandingIcon,
+	FlightCardPlaneIcon,
+	TurkishAirlinesIcon,
+} from "@/components/icons"
+
 import { FlightModalProps } from "@/types"
 
 export default function FlightModal({

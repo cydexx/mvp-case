@@ -1,7 +1,9 @@
 import { Tabs } from "expo-router"
-import { PlansTabIcon } from "@/components/icons/PlansTabIcon"
-import { FlightsTabIcon } from "@/components/icons/FlightsTabIcon"
-import { ProfileTabIcon } from "@/components/icons/ProfileTabIcon"
+import {
+	PlansTabIcon,
+	FlightsTabIcon,
+	ProfileTabIcon,
+} from "@/components/icons"
 
 export default function TabLayout() {
 	return (

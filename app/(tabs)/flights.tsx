@@ -1,13 +1,14 @@
 import React, { useState } from "react"
 import { View, FlatList } from "react-native"
+import { SafeAreaView } from "react-native-safe-area-context"
+
 import FlightModal from "@/components/FlightModal"
 import EmptyState from "@/components/EmptyState"
 import FlightCard from "@/components/FlightCard"
 import Header from "@/components/Header"
-import { SafeAreaView } from "react-native-safe-area-context"
+
 import { FlightsTabIcon } from "@/components/icons"
 import { generateRandomFlight } from "@/utils/flightUtils"
-
 import { Flight } from "@/types"
 
 export default function FlightsScreen() {

@@ -1,7 +1,9 @@
-import { View, Text, TouchableOpacity } from "react-native"
 import React from "react"
-import { HeaderProps } from "@/types"
+import { View, Text, TouchableOpacity } from "react-native"
+
 import { PlusIcon } from "./icons"
+
+import { HeaderProps } from "@/types"
 
 export default function Header({ buttonFunction, title }: HeaderProps) {
 	return (
