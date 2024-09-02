@@ -1,0 +1,7 @@
+export { TakeOffIcon } from "./TakeOffIcon"
+export { LandingIcon } from "./LandingIcon"
+export { FlightCardPlaneIcon } from "./FlightCardPlaneIcon"
+export { TurkishAirlinesIcon } from "./AirlineIcon"
+export { PlansTabIcon } from "./PlansTabIcon"
+export { FlightsTabIcon } from "./FlightsTabIcon"
+export { ProfileTabIcon } from "./ProfileTabIcon"
