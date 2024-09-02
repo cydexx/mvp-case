@@ -9,6 +9,4 @@ const svg = `
 </svg>
 `
 
-export const ProfileTabIcon = ({ width = 24, height = 24 }) => (
-	<SvgXml xml={svg} width={width} height={height} />
-)
+export const ProfileTabIcon = () => <SvgXml xml={svg} />

@@ -50,7 +50,7 @@ export default function FlightCard({
 						{formattedDepartureTime}
 					</Text>
 				</View>
-				<FlightCardPlaneIcon width={24} height={24} />
+				<FlightCardPlaneIcon />
 				<View className="flex flex-col items-end">
 					<View className="flex-row items-center space-x-1">
 						<LandingIcon />

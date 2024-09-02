@@ -13,9 +13,6 @@ const svg = `
 </clipPath>
 </defs>
 </svg>
-
-
-
 `
 
 export const FlightCardPlaneIcon = () => <SvgXml xml={svg} />

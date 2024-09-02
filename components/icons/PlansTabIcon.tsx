@@ -10,6 +10,6 @@ const svg = `
 </svg>
 `
 
-export const PlansTabIcon = ({ width = 24, height = 24 }) => (
+export const PlansTabIcon = ({ width = 25, height = 25 }) => (
 	<SvgXml xml={svg} width={width} height={height} />
 )

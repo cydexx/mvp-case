@@ -16,6 +16,4 @@ const svg = `
 </svg>
 `
 
-export const TakeOffIcon = ({ width = 24, height = 24 }) => (
-	<SvgXml xml={svg} width={width} height={height} />
-)
+export const TakeOffIcon = () => <SvgXml xml={svg} />
