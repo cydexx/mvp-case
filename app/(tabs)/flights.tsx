@@ -1,20 +1,22 @@
 import React, { useState } from "react"
 import { View, FlatList } from "react-native"
-import { SafeAreaView } from "react-native-safe-area-context"
-
 import FlightModal from "@/components/FlightModal"
 import EmptyState from "@/components/EmptyState"
 import FlightCard from "@/components/FlightCard"
 import Header from "@/components/Header"
-
+import { SafeAreaView } from "react-native-safe-area-context"
 import { FlightsTabIcon } from "@/components/icons"
 import { generateRandomFlight } from "@/utils/flightUtils"
+
 import { Flight } from "@/types"
 
 export default function FlightsScreen() {
 	const [flights, setFlights] = useState<Flight[]>([])
 	const [selectedFlight, setSelectedFlight] = useState<Flight | null>(null)
 	const [isModalVisible, setIsModalVisible] = useState(false)
+	const [removingFlightId, setRemovingFlightId] = useState<string | null>(
+		null
+	)
 
 	const addFlight = () => {
 		const newFlight = generateRandomFlight()
@@ -22,7 +24,11 @@ export default function FlightsScreen() {
 	}
 
 	const removeFlight = (id: string) => {
-		setFlights(flights.filter((flight) => flight.id !== id))
+		setRemovingFlightId(id)
+		setTimeout(() => {
+			setFlights(flights.filter((flight) => flight.id !== id))
+			setRemovingFlightId(null)
+		}, 300)
 	}
 
 	const openFlightModal = (flight: Flight) => {
@@ -50,16 +56,17 @@ export default function FlightsScreen() {
 				) : (
 					<FlatList
 						data={flights}
-						className=" flex-1 "
+						className="flex-1"
 						keyExtractor={(item: Flight) => item.id}
 						ItemSeparatorComponent={() => (
-							<View style={{ height: 16 }} /> // 16px spacing between each FlightCard in className space-y-4 or gap-4 doesnt work
+							<View style={{ height: 16 }} />
 						)}
 						renderItem={({ item }: { item: Flight }) => (
 							<FlightCard
 								flight={item}
-								onRemove={() => removeFlight(item.id)}
+								onRemove={removeFlight}
 								onPress={() => openFlightModal(item)}
+								isRemoving={removingFlightId === item.id}
 							/>
 						)}
 						style={{ padding: 16 }}
@@ -71,10 +78,7 @@ export default function FlightsScreen() {
 					isVisible={isModalVisible}
 					onClose={closeFlightModal}
 					flight={selectedFlight}
-					onRemoveFlight={(flightId: string) => {
-						removeFlight(flightId)
-						closeFlightModal()
-					}}
+					onRemoveFlight={removeFlight}
 				/>
 			)}
 		</SafeAreaView>
