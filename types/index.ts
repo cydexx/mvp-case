@@ -34,6 +34,7 @@ export type FlightCardProps = {
 	onRemove: (id: string) => void
 	onPress: () => void
 	isRemoving: boolean
+	isNew: boolean
 }
 
 // HeaderProps tipi

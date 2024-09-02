@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import { View, FlatList } from "react-native"
 import FlightModal from "@/components/FlightModal"
 import EmptyState from "@/components/EmptyState"
@@ -17,10 +17,15 @@ export default function FlightsScreen() {
 	const [removingFlightId, setRemovingFlightId] = useState<string | null>(
 		null
 	)
+	const newFlightId = useRef<string | null>(null)
 
 	const addFlight = () => {
 		const newFlight = generateRandomFlight()
+		newFlightId.current = newFlight.id
 		setFlights([newFlight, ...flights])
+		setTimeout(() => {
+			newFlightId.current = null
+		}, 500)
 	}
 
 	const removeFlight = (id: string) => {
@@ -67,6 +72,7 @@ export default function FlightsScreen() {
 								onRemove={removeFlight}
 								onPress={() => openFlightModal(item)}
 								isRemoving={removingFlightId === item.id}
+								isNew={newFlightId.current === item.id}
 							/>
 						)}
 						style={{ padding: 16 }}

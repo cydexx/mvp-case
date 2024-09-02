@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useRef, useEffect } from "react"
 import { View, Text, TouchableOpacity, Animated } from "react-native"
 
 import {
@@ -15,12 +15,26 @@ export default function FlightCard({
 	onRemove,
 	onPress,
 	isRemoving,
+	isNew,
 }: FlightCardProps) {
-	const fadeAnim = useRef(new Animated.Value(1)).current
-	const translateAnim = useRef(new Animated.Value(0)).current
+	const fadeAnim = useRef(new Animated.Value(isNew ? 0 : 1)).current
+	const translateAnim = useRef(new Animated.Value(isNew ? 100 : 0)).current
 
 	useEffect(() => {
-		if (isRemoving) {
+		if (isNew) {
+			Animated.parallel([
+				Animated.timing(fadeAnim, {
+					toValue: 1,
+					duration: 300,
+					useNativeDriver: true,
+				}),
+				Animated.timing(translateAnim, {
+					toValue: 0,
+					duration: 300,
+					useNativeDriver: true,
+				}),
+			]).start()
+		} else if (isRemoving) {
 			Animated.parallel([
 				Animated.timing(fadeAnim, {
 					toValue: 0,
@@ -34,10 +48,11 @@ export default function FlightCard({
 				}),
 			]).start(() => onRemove(flight.id))
 		}
-	}, [isRemoving])
+	}, [isNew, isRemoving])
 
 	const formattedDepartureTime = flight.departureTime
 	const formattedArrivalTime = flight.arrivalTime
+
 	return (
 		<Animated.View
 			style={{
@@ -47,7 +62,7 @@ export default function FlightCard({
 		>
 			<TouchableOpacity
 				onPress={onPress}
-				className="bg-white rounded-[14px] border-[0.5px] border-[#E5E7EB]  p-4 gap-4 mb-4 "
+				className="bg-white rounded-[14px] border-[0.5px] border-[#E5E7EB] p-4 gap-4 mb-4"
 			>
 				<View className="flex-row justify-between items-center ">
 					<View className="flex-row items-center space-x-2">
