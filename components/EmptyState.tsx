@@ -2,13 +2,7 @@ import React from "react"
 import { View, Text, TouchableOpacity } from "react-native"
 import { SvgXml } from "react-native-svg"
 
-type EmptyStateProps = {
-	icon: string
-	title: string
-	description: string
-	buttonText: string
-	onButtonPress: () => void
-}
+import { EmptyStateProps } from "@/types"
 
 export default function EmptyState({
 	icon,
