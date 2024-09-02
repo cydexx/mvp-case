@@ -64,7 +64,7 @@ export default function FlightModal({
 										{formattedDepartureTime}
 									</Text>
 								</View>
-								<FlightCardPlaneIcon width={24} height={24} />
+								<FlightCardPlaneIcon />
 								<View className="flex flex-col  space-y-2 items-end">
 									<View className="flex-row items-center space-x-1">
 										<LandingIcon />
@@ -82,9 +82,9 @@ export default function FlightModal({
 							</View>
 
 							{/* Right dot  */}
-							<View className="absolute right-[-8px] top-1/2 w-4 h-4 rounded-full bg-[#878D97]" />
+							<View className="absolute right-[-8px] transform translate-y-2 top-1/2 w-4 h-4 rounded-full bg-[#878D97]" />
 							{/* Left dot */}
-							<View className="absolute left-[-8px] top-1/2 w-4 h-4 rounded-full bg-[#878D97]" />
+							<View className="absolute left-[-8px] transform translate-y-2 top-1/2 w-4 h-4 rounded-full bg-[#878D97]" />
 						</View>
 					</TouchableWithoutFeedback>
 					<TouchableOpacity
