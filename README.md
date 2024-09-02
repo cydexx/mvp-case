@@ -1,50 +1,59 @@
-# Welcome to your Expo app 👋
+<h1>mvpstudio test case</h1>
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+<h2 id="installation">Installation</h2>
+<ol>
+  <li><strong>Clone the Repository</strong>:
+    <pre><code>git clone https://github.com/cydexx/mvp-case.git</code></pre>
+  </li>
+  <li><strong>Navigate to the Project Directory</strong>:
+    <pre><code>cd mvp-case</code></pre>
+  </li>
+  <li><strong>Install Dependencies</strong>:
+    <pre><code>pnpm install</code></pre>
+  </li>
+</ol>
 
-## Get started
+<h2 id="running-the-app">Running the App</h2>
+<p>Once you have installed the dependencies, you can start the development server and run the app on your mobile device or emulator.</p>
 
-1. Install dependencies
+<h3>On a Physical Device</h3>
+<ol>
+  <li>Start the Expo development server:
+    <pre><code>pnpm start</code></pre>
+  </li>
+  <li>Scan the QR code that appears in your terminal using the <strong>Expo Go</strong> app on your phone.</li>
+</ol>
 
-   ```bash
-   npm install
-   ```
+<h3>On an Emulator</h3>
+<p>To run on an emulator, you will need either an Android emulator or an iOS simulator:</p>
+<ul>
+  <li><strong>For Android:</strong>
+    <ul>
+      <li>Ensure you have Android Studio installed with an AVD (Android Virtual Device) configured.</li>
+      <li>Run the following command:
+        <pre><code>pnpm start --android</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li><strong>For iOS:</strong>
+    <ul>
+      <li>Ensure you have Xcode installed on your Mac.</li>
+      <li>Run the following command:
+        <pre><code>pnpm start --ios</code></pre>
+      </li>
+    </ul>
+  </li>
+</ul>
 
-2. Start the app
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+  <li><strong>Metro Bundler Issues:</strong> If you encounter errors with Metro bundler, try clearing the cache and restarting the server:
+    <pre><code>expo start -c</code></pre>
+  </li>
+  <li><strong>Installation Issues:</strong> If you face issues during <code>npm install</code>, try deleting the <code>node_modules</code> directory and <code>package-lock.json</code> file, and reinstall dependencies:
+    <pre><code>rm -rf node_modules package-lock.json
+pnpm install</code></pre>
+  </li>
+  <li><strong>Expo App Doesn't Load:</strong> If the Expo Go app doesn't load the project, make sure your mobile device and development machine are on the same network.</li>
+</ul>
 
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
